@@ -32,7 +32,7 @@ def search_for_term (Text='', SearchTerm = '', Transpositions = True, Substituti
             # Examine the text item against the search term
             dist = edit_distance(SearchTerm[0], Text[txt], substitution_cost=SubstitutionCost, transpositions=Transpositions)
             # if the distance of the current word to the phrase's first word is acceptable, 
-            if dist <= scaledCrit:
+            if dist <= ScaledCriterion:
                 # Start saving the text in case we want to return it as a result
                 thisText = Text[txt]
                 # see if the subsequent SearchTerm words match the following text words 
