@@ -6,6 +6,7 @@
 
 import logging
 from nltk.metrics.distance import edit_distance
+from nltk.tokenize import word_tokenize
 
 def scale_criterion (criterion, scale, denominator=50):
     '''Give more leeway for longer search terms.'''
@@ -16,9 +17,9 @@ def search_for_term (Text='', SearchTerm='', Transpositions=True, SubstitutionCo
     '''For a search term phrase (could be single- or multi-word), find whether or not it's present within the text, subject to fuzziness of Levenshtein edit distance. If it's present then for each instance found: return the text that was found, the word index of its first word, and the Levenshtein edit distance.'''
     resultTemplate={'SearchTerm' : SearchTerm, 'Found' : False, 'Index' : None, 'Edit Distance' : None}
     results = []
-    SearchTerm = SearchTerm.split(" ")
+    SearchTerm = word_tokenize(SearchTerm)
     SearchTermlen = len(SearchTerm)
-    Text = Text.split(" ")
+    Text = word_tokenize(Text)
     TextLen = len(Text)
     # Maybe scale scoring to the number of words in the search term
     # if it's false then skip the next statement
