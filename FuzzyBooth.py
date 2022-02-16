@@ -1,8 +1,6 @@
 # Fuzzy Booth
 # Search a document for a substring, but with Levenshtein edit distance fuzzy-matching.
 
-# To do:
-# Splitting's all well and good, but I should probably do a bit more processing on Text and SearchTerm, such as to use a generally accepted tokenizer and work on the tokens.
 
 import logging
 from nltk.metrics.distance import edit_distance
